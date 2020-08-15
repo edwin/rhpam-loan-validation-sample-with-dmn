@@ -5,6 +5,26 @@
     <dmn:extensionElements/>
     <dmn:variable id="_AB04B6DC-C09A-4CC0-92F8-DAC63916CF05" name="salary" typeRef="number"/>
   </dmn:inputData>
+  <dmn:decision id="_58020CCF-C423-41DA-8D7A-B60DBFF2F070" name="result">
+    <dmn:extensionElements/>
+    <dmn:variable id="_FD1F31C5-5C83-4134-B4C2-BCE632E46961" name="result" typeRef="string"/>
+    <dmn:informationRequirement id="_283E378F-8B0D-4A69-B5FE-702321476E19">
+      <dmn:requiredDecision href="#_396F484C-79DD-47B5-A023-9C7A89E762C1"/>
+    </dmn:informationRequirement>
+    <dmn:context id="_CDE0CD2C-4F5B-4A29-B970-E917EDC86A18">
+      <dmn:contextEntry>
+        <dmn:variable id="_ECB97F91-7785-4F9B-A76B-3CAE4F532F2F" name="total" typeRef="number"/>
+        <dmn:literalExpression id="_F2580FFA-F673-48F5-BB91-CB073FE1A922">
+          <dmn:text>loan_limit</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:literalExpression id="_130F4AD3-B687-4C29-A221-2310C91BB244">
+          <dmn:text>"you are eligible for "+string(total)</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+    </dmn:context>
+  </dmn:decision>
   <dmn:decision id="_396F484C-79DD-47B5-A023-9C7A89E762C1" name="loan_limit">
     <dmn:extensionElements/>
     <dmn:variable id="_9915257F-408D-4295-8F06-1D4D5280DC09" name="loan_limit" typeRef="number"/>
@@ -102,6 +122,17 @@
     <dmndi:DMNDiagram>
       <di:extension>
         <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths dmnElementRef="_CDE0CD2C-4F5B-4A29-B970-E917EDC86A18">
+            <kie:width>50.0</kie:width>
+            <kie:width>100.0</kie:width>
+            <kie:width>300.0</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_F2580FFA-F673-48F5-BB91-CB073FE1A922">
+            <kie:width>300.0</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_130F4AD3-B687-4C29-A221-2310C91BB244">
+            <kie:width>300.0</kie:width>
+          </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_276D51DE-EDF0-4613-94EC-F2E0F3BCB43A">
             <kie:width>50.0</kie:width>
             <kie:width>100.0</kie:width>
@@ -118,6 +149,15 @@
           <dmndi:FontColor red="0" green="0" blue="0"/>
         </dmndi:DMNStyle>
         <dc:Bounds x="117" y="229" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-_58020CCF-C423-41DA-8D7A-B60DBFF2F070" dmnElementRef="_58020CCF-C423-41DA-8D7A-B60DBFF2F070" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="205" y="28" width="100" height="50"/>
         <dmndi:DMNLabel/>
       </dmndi:DMNShape>
       <dmndi:DMNShape id="dmnshape-_8768ABE5-8FF8-44E3-95F8-B56446D389DE" dmnElementRef="_8768ABE5-8FF8-44E3-95F8-B56446D389DE" isCollapsed="false">
@@ -138,6 +178,10 @@
         <dc:Bounds x="205" y="125" width="100" height="50"/>
         <dmndi:DMNLabel/>
       </dmndi:DMNShape>
+      <dmndi:DMNEdge id="dmnedge-_283E378F-8B0D-4A69-B5FE-702321476E19" dmnElementRef="_283E378F-8B0D-4A69-B5FE-702321476E19">
+        <di:waypoint x="255" y="150"/>
+        <di:waypoint x="255" y="78"/>
+      </dmndi:DMNEdge>
       <dmndi:DMNEdge id="dmnedge-_54121707-7513-4617-86C9-16B24AF910BF" dmnElementRef="_54121707-7513-4617-86C9-16B24AF910BF">
         <di:waypoint x="167" y="254"/>
         <di:waypoint x="255" y="175"/>
